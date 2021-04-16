@@ -8,12 +8,6 @@ export class ChatRoom extends Room {
 
   public onCreate(options: any): void {
     this.onMessage("message", (client, message) => {
-      console.log(
-        "ChatRoom received message from",
-        client.sessionId,
-        ":",
-        message
-      );
       this.broadcast("messages", `(${client.sessionId}) -> ${message}`);
     });
   }
