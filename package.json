@@ -9,7 +9,7 @@
     "build": "npm run clean && tsc && node node_modules/copyfiles/copyfiles package.json ./lib && node node_modules/copyfiles/copyfiles production.env ./lib",
     "clean": "node node_modules/rimraf/bin lib"
   },
-  "author": "",
+  "author": "Vasile Ropot",
   "license": "UNLICENSED",
   "bugs": {
     "url": "https://github.com/colyseus/create-colyseus/issues"

@@ -9,11 +9,11 @@ import { MyRoom } from "./rooms/MyRoom";
 export default Arena({
     getId: () => "Your Colyseus App",
 
-    initializeGameServer: (gameServer) => {
+    initializeGameServer: (server) => {
         /**
          * Define your room handlers:
          */
-        gameServer.define('my_room', MyRoom);
+        server.define('my_room', MyRoom);
 
     },
 
