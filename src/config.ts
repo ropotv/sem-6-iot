@@ -1,23 +1,31 @@
 import Arena from "@colyseus/arena";
 import { monitor } from "@colyseus/monitor";
+import path from 'path';
+import express from 'express';
+
 
 /**
  * Import your Room files
  */
-import { MyRoom } from "./rooms/MyRoom";
+import { ChatRoom } from "./rooms/chat-room";
+import path from "path";
 
 export default Arena({
-    getId: () => "Your Colyseus App",
+    getId: () => "Chisinau Arena IOT",
 
     initializeGameServer: (server) => {
         /**
          * Define your room handlers:
          */
-        server.define('my_room', MyRoom);
+
+        console.log('init game server' , server.define.toString())
+        server.define('chat', ChatRoom);
+
 
     },
 
     initializeExpress: (app) => {
+
         /**
          * Bind your custom express routes here:
          */
@@ -31,6 +39,8 @@ export default Arena({
          * Read more: https://docs.colyseus.io/tools/monitor/
          */
         app.use("/colyseus", monitor());
+        app.use('/chat', express.static(path.join(__dirname, "client/chat.html")));
+
     },
 
 
