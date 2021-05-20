@@ -1,7 +1,6 @@
 import Arena from "@colyseus/arena";
 import { monitor } from "@colyseus/monitor";
 import path from "path";
-import express from "express";
 
 import { ChatRoom } from "./rooms";
 
@@ -13,7 +12,7 @@ export default Arena({
   },
 
   initializeExpress: (app) => {
-    const chat = path.join(__dirname, "client/index.html");
+    const chat = path.join(__dirname, "index.html");
 
     app.get("/", (req, res) => res.sendFile(chat));
 
