@@ -1,0 +1,13 @@
+version: '3.7'
+
+services:
+  api:
+    command: npm run start
+    container_name: pbl-iot-api
+    build:
+      context: .
+    ports:
+      - 8080:8080
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
